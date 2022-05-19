@@ -117,20 +117,31 @@ class PostController extends AppController
         $post = $this->Post->get($id, [
             'contain' => [],
         ]);
-       
+        
+
+
+        $imagen = $post->image;
         $this->Authorization->authorize($post);
-   
-          
+
             if ($this->request->is(['patch', 'put'])) { //falta el post
                 $post = $this->Post->patchEntity($post, $this->request->getData());
-                if(!$post->getErrors){
+                if(!$post->getErrors){   
+                    
                     $image = $this->request->getData('image_file');
                     $name = $image->getClientFilename();
-                    $targetPath = WWW_ROOT.'img'.DS.$name;
-                    if($name){
-                        $image->moveTo($targetPath);
+                    
+                    if($name == ''){
+                      
+                        $post->image = $imagen;
+
+                    }else{
+                        $targetPath = WWW_ROOT.'img'.DS.$name;
+                        if($name){
+                            $image->moveTo($targetPath);
+                        }
+                        $post->image = $name;
                     }
-                    $post->image = $name;
+                    
                 }
                 if ($this->Post->save($post)) {
                     return $this->redirect(['controller' => 'pages', 'action' => 'index']);

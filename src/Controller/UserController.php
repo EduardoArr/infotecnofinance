@@ -18,7 +18,7 @@ class UserController extends AppController
     public function register()
     {
         $this->Authorization->skipAuthorization();
-        $contra = '/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/';
+        $contra = '/^\S*(?=\S{5,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/';
         $user = $this->User->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->User->patchEntity($user, $this->request->getData());
@@ -30,7 +30,7 @@ class UserController extends AppController
                         $this->Flash->error(__('El usuario no se ha guardado correctamente, prueba otra vez.'));
                     }
                 }else{
-                    $this->Flash->error(__('Contraseña no válida'));
+                    $this->Flash->error(__('La contraseña debe contener 5 dígitos, mayuscula, micúscula y números.'));
                 }
         }
         $this->set(compact('user'));

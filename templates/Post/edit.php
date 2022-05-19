@@ -25,6 +25,7 @@
                             <input class="form-control" id="brief" name="brief" value="<?= h($post->brief) ?>" type="text"/> 
                         </div>
                         <div class="form-group">
+                            
                             <input class="form-control" type="file" id="image_file" name="image_file">
                            
                         </div> 

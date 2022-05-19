@@ -40,7 +40,7 @@ use App\Model\Table\CommentTable;
             <h2 class="section-heading mb-5"><?= h($post->tittle) ?></h2>
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p><?= nl2br($post->content) ?></p>   
+                        <p style="line-height: 50px"><?= strip_tags($post->content) ?></p>   
                     </div>
                     <hr>
                     <div class="col-12">
@@ -95,7 +95,7 @@ use App\Model\Table\CommentTable;
                 <span class="g-color-gray-dark-v4 g-font-size-12"><?= $comment->created ?></span>
               </div>
         
-              <p><?php echo nl2br($comment->comment);?></p>
+              <p><?php echo strip_tags($comment->comment, '<br> <p>');?></p>
         
               <ul class="list-inline d-sm-flex my-0">
                

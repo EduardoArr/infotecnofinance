@@ -39,7 +39,7 @@
                                             ['controller'=>'post', 'action' => 'view', 'class' => 'post-title', $post->id]
                                         ) ?>
                                         </h2>
-                                        <h3 class="post-subtitle"> <?=nl2br($post->brief)?></h3>
+                                        <h3 class="post-subtitle"> <?=h($post->brief)?></h3>
                                         <p class="post-meta">
                                             Creado por
                                                 <?php 
@@ -48,7 +48,7 @@
                                                     echo $user->username;
                                                 }
                                                     endforeach;?>
-                                            el <?= nl2br($post->created) ?>
+                                            el <?= h($post->created) ?>
                                         </p>
                                     </div>
                                     <div class=" col-xs-12 col-md-6">

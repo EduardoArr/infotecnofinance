@@ -100,16 +100,22 @@ class NewsController extends AppController
         ]);
         $this->Authorization->authorize($news);
         
+        $imagen = $news->image;
         if ($this->request->is(['patch', 'put'])) { //falta el post
             $news = $this->News->patchEntity($news, $this->request->getData());
             if(!$news->getErrors){
                 $image = $this->request->getData('image_file');
                 $name = $image->getClientFilename();
-                $targetPath = WWW_ROOT.'img'.DS.$name;
-                if($name){
-                    $image->moveTo($targetPath);
+                
+                if($name == ''){
+                    $news->image = $imagen;
+                }else{
+                    $targetPath = WWW_ROOT.'img'.DS.$name;
+                    if($name){
+                        $image->moveTo($targetPath);
+                    }
+                    $news->image = $name;
                 }
-                $news->image = $name;
             }
             if ($this->News->save($news)) {
                 return $this->redirect(['action' => 'index']);

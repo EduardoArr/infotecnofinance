@@ -30,12 +30,12 @@
                                             $cont = 1;
                                             foreach($category as $categorys):   
                                         ?> 
-                                            <option value ="<?=$cont?>" name ="<?=$cont?>"><?=h($categorys)?></option>
+                                            <option value ="<?=$cont?>" <?php if($_POST['categorias']==$cont){ echo('selected="selected"');}?>name ="<?=$cont?>"><?=h($categorys)?></option>
                                         <?php 
                                             $cont++;
                                             endforeach;
                                         ?>
-                                        <option selected="true" value ="4" name ="4">Categorías</option>
+                                        <option value ="4" <?php if($_POST['categorias']==$cont){ echo('selected="selected"');}?> name ="4">Categorías</option>
                             
                         </select>
                         
