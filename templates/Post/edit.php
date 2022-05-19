@@ -19,10 +19,10 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input class="form-control" id="tittle" name="tittle" value="<?= h($post->tittle) ?>" type="text"/> 
+                            <input class="form-control" id="tittle" name="tittle" value="<?= h($post->tittle) ?>" type="text" required/> 
                         </div>
                         <div class="form-group">
-                            <input class="form-control" id="brief" name="brief" value="<?= h($post->brief) ?>" type="text"/> 
+                            <input class="form-control" id="brief" name="brief" value="<?= h($post->brief) ?>" type="text" required/> 
                         </div>
                         <div class="form-group">
                             
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">                      
-                            <textarea class="form-control" id="content" name="content" style="width: 100%; height: 175px;"><?= h($post->content)?></textarea>
+                            <textarea class="form-control" id="content" name="content" style="width: 100%; height: 175px;" required><?= h($post->content)?></textarea>
                         </div>
                     </div>
                 </div>

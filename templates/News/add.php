@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input class="form-control" id="title" name="title" type="text" placeholder="Título"/>    
+                            <input class="form-control" id="title" name="title" type="text" placeholder="Título" required/>    
                         </div>
                         <div class="form-group">
                             <input class="form-control" type="file" id="image_file" name="image_file">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">                      
-                            <textarea class="form-control" id="content" name="content" style="width: 100%; height: 175px;" placeholder="Contenido"></textarea>
+                            <textarea class="form-control" id="content" name="content" style="width: 100%; height: 175px;" placeholder="Contenido" required></textarea>
                         </div>
                     </div>
                 </div>
