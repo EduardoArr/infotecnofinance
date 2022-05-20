@@ -13,8 +13,8 @@
         <div class="profile mr-3">
             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="..." width="130" class="rounded mb-2 img-thumbnail"></div> 
     <div class="media-body mb-5 text-white"> 
-        <h4 class="mt-0 mb-0"><?=$user->username?></h4> 
-        <p class="small mb-4"><i class="fa-solid fa-envelope" style="margin-right: 5px;"></i><?=$user->email?></p> 
+        <h4 class="mt-0 mb-0"><?=h($user->username)?></h4> 
+        <p class="small mb-4"><i class="fa-solid fa-envelope" style="margin-right: 5px;"></i><?=h($user->email)?></p> 
     </div> 
     </div> 
 </div> 
@@ -62,7 +62,7 @@
                         <?php
                         foreach($comments as $comment): 
                         ?>
-                            <p class="mb-0"><?=nl2br($comment->comment);?></p> 
+                            <p class="mb-0"><?= preg_replace("/[\r\n|\n|\r]+/", "<br>", h($comment->comment));?></p> 
                                 <p class="font-italic mb-0"><?=$comment->created?></p>     
                         <?php
                             endforeach;

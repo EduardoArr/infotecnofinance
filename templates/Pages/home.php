@@ -35,7 +35,7 @@
                                     <div class=" col-xs-12 col-md-6">
                                         <h2>
                                         <?= $this->Html->link(
-                                            nl2br($post->tittle),
+                                            preg_replace("/[\r\n|\n|\r]+/", "<br>", h($post->tittle)),
                                             ['controller'=>'post', 'action' => 'view', 'class' => 'post-title', $post->id]
                                         ) ?>
                                         </h2>
@@ -44,10 +44,10 @@
                                             Creado por
                                                 <?php 
                                                 foreach($users as $user):
-                                                if($user->id == $post->user_id){
-                                                    echo $user->username;
-                                                }
-                                                    endforeach;?>
+                                                        if($user->id == $post->user_id){
+                                                            echo $user->username;
+                                                        }
+                                                endforeach;?>
                                             el <?= h($post->created) ?>
                                         </p>
                                     </div>
@@ -130,7 +130,7 @@
         </div>
 
         <!-- Footer-->
-     <footer class="border-top mt-3">
+     <footer>
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">

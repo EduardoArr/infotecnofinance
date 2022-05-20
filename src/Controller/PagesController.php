@@ -49,7 +49,7 @@ class PagesController extends AppController
         $post = TableRegistry::get('post');
         $user = TableRegistry::get('user');
         $likes = TableRegistry::get('likes');
-        $post = $post->find()->order(['id' => 'DESC']);;
+        $post = $post->find()->order(['id' => 'DESC']);
         $likes = $likes->find();
         $users = $user->find();
 
